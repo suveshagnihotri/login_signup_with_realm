@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Zolo_Assignment</string>
+
+
+    <!--LoginActivity-->
+    <string name="hint_phone">Phone number</string>
+    <string name="hint_passward">Passward</string>
+    <string name="log_in">Log in</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="create_account">create account</string>
+
+
+
+</resources>
