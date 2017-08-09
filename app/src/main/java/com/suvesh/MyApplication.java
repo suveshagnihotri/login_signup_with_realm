@@ -24,7 +24,7 @@ public class MyApplication extends Application {
 
             @Override
             public void bind(ViewDataBinding viewDataBinding, ViewModel viewModel) {
-                viewDataBinding.setVariable(BR._all,viewModel);
+                viewDataBinding.setVariable(BR.vm,viewModel);
             }
         });
     }

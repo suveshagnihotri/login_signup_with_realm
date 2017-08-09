@@ -1,22 +1,23 @@
 package com.suvesh.activity;
 
 import com.manaschaudhari.android_mvvm.ViewModel;
-import com.suvesh.R;
-import com.suvesh.viewmodel.LoginViewModel;
+import com.suvesh.viewmodel.ProfileViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
-public class LoginActivity extends BaseActivity {
+/**
+ * Created by Suvesh on 09/08/2017 AD.
+ */
 
+public class UserProfileActivity extends  BaseActivity {
     @NotNull
     @Override
     protected ViewModel createViewModel() {
-
-        return new LoginViewModel(LoginActivity.this);
+        return new ProfileViewModel(UserProfileActivity.this);
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return 0;
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="@drawable/snackbar_bg"
+    android:layout_gravity="top|center_horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical"
+    android:layout_margin="8dp"
+    android:layout_height="wrap_content">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="42dp"
+        android:id="@+id/snackbar_icon"
+        android:layout_marginRight="6dp"
+        fresco:roundingBorderColor="@color/white"
+        fresco:roundingBorderWidth="2dp"
+        fresco:roundAsCircle="true"
+        fresco:actualImageScaleType="centerCrop"
+        android:layout_height="42dp" />
+
+    <com.suvesh.utils.CustomTextView
+        android:layout_width="match_parent"
+        app:font="light"
+        android:id="@+id/snackbar_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_small"
+        android:layout_height="wrap_content" />
+
+    <com.suvesh.utils.CustomTextView
+        android:layout_width="wrap_content"
+        android:textAllCaps="true"
+        android:id="@+id/snackbar_action"
+        app:font="light"
+        android:visibility="gone"
+        android:textColor="@color/primary"
+        android:layout_height="wrap_content" />
+</LinearLayout>

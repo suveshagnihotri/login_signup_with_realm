@@ -1,6 +1,8 @@
 package com.suvesh.activity
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Build
@@ -13,6 +15,8 @@ import com.manaschaudhari.android_mvvm.adapters.ViewModelBinder
 import com.manaschaudhari.android_mvvm.utils.BindingUtils
 import com.manaschaudhari.android_mvvm.utils.Preconditions
 import com.readystatesoftware.systembartint.SystemBarTintManager
+import java.io.Serializable
+import java.util.*
 
 /**
  * Created by Suvesh on 07/08/2017 AD.
@@ -26,6 +30,19 @@ abstract class BaseActivity : Activity() {
 
     enum class ToolbarState {
         BACK_NAV
+    }
+
+    companion object {
+        @JvmStatic
+        fun newIntent(context: Context, extras : HashMap<String, Serializable?>?, cls : Class<*>): Intent {
+            val i = Intent(context, cls)
+            if (extras != null) {
+                for((key, value) in extras)
+                    i.putExtra(key, value)
+            }
+            return i
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

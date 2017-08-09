@@ -9,6 +9,14 @@
     <string name="forget_password">Forget Password</string>
     <string name="create_account">create account</string>
 
+    <!--SignUpActivity-->
+    <string name="register">Register</string>
+    <string name="please_register">Please Register with zolo to continue</string>
+    <string name="hint_email">Your email Id</string>
+    <string name="hint_name">Your name</string>
+
+    <!--ProfileActivity-->
+    <string name="update">Update</string>
 
 
 </resources>
