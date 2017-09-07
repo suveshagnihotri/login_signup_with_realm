@@ -9,6 +9,9 @@ import android.util.Log;
 
 import com.suvesh.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Suvesh on 09/08/2017 AD.
  */
@@ -79,7 +82,6 @@ public class ZoloDbHelper extends SQLiteOpenHelper {
     //Update the User
     public void updateUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, user.getName());
         values.put(COLUMN_USER_EMAIL, user.getEmail());
@@ -161,4 +163,70 @@ public class ZoloDbHelper extends SQLiteOpenHelper {
 
         return false;
     }
+
+
+    public List<User> getAllUser() {
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_USER_ID,
+                COLUMN_USER_EMAIL,
+                COLUMN_USER_NAME,
+                COLUMN_USER_PHONE,
+                COLUMN_USER_PASSWORD
+        };
+        // sorting orders
+        String sortOrder =
+                COLUMN_USER_NAME + " ASC";
+        List<User> userList = new ArrayList<User>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // query the user table
+        Cursor cursor = db.query(TABLE_USER, //Table to query
+                columns,    //columns to return
+                null,        //columns for the WHERE clause
+                null,        //The values for the WHERE clause
+                null,       //group the rows
+                null,       //filter by row groups
+                sortOrder); //The sort order
+
+
+        // Traversing through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                User user = new User();
+                user.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID))));
+                user.setName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
+                user.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)));
+                // Adding user record to list
+                userList.add(user);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        // return user list
+        return userList;
+    }
+
+    public User getUser(String phone){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USER + " WHERE "
+                + COLUMN_USER_PHONE + " ='" + phone + "';", null);
+        if (cursor.getCount() == 0) {
+            cursor.close();
+            return null;
+        }
+        if(cursor.moveToNext()){
+            User user = new User();
+            user.setEmail(cursor.getString(3));
+            user.setName(cursor.getString(1));
+            user.setPhone(cursor.getString(2));
+            user.setPassword(cursor.getString(4));
+            return  user;
+        }
+        return  null;
+    }
+
 }

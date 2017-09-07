@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="android.view.View" />
         <variable
             name="vm"
@@ -50,6 +49,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/hint_name"
+                            android:text="@={vm.userName}"
                             tools:ignore="HardcodedText"/>
 
                     </android.support.design.widget.TextInputLayout>
@@ -83,6 +83,7 @@
                             android:layout_height="wrap_content"
                             android:inputType="textEmailAddress"
                             android:hint="@string/hint_email"
+                            android:text="@={vm.userEmail}"
                             tools:ignore="HardcodedText"/>
 
                     </android.support.design.widget.TextInputLayout>
@@ -113,7 +114,8 @@
                         <com.suvesh.utils.CustomEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="numberPassword"
+                            android:inputType="phone"
+                            android:text="@={vm.userPhone}"
                             android:hint="@string/hint_phone"
                             tools:ignore="HardcodedText"/>
 
@@ -147,6 +149,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPassword"
+                            android:text="@={vm.passward}"
                             android:hint="@string/hint_passward" />
 
                     </android.support.design.widget.TextInputLayout>
@@ -162,6 +165,7 @@
                     android:layout_marginRight="@dimen/dp_32"
                     android:background="@drawable/button_accent"
                     android:text="@string/update"
+                    android:onClick="@{(v) -> vm.updateUserInfo()}"
                     android:textSize="@dimen/sp_16"
                     android:padding="@dimen/dp_4"
                     android:textColor="@color/black"/>

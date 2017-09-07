@@ -19,4 +19,10 @@
     <string name="update">Update</string>
 
 
+    <!-- ForgetPassward-->
+    <string name="forgot">Forgot</string>
+    <string name="passward"> Passward? </string>
+    <string name="reset_pass">Reset Password</string>
+
+
 </resources>

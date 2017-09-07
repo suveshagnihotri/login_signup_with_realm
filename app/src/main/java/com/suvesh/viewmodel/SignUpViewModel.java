@@ -29,9 +29,9 @@ public class SignUpViewModel implements ViewModel {
     public final ObservableField<String> userNameError = FieldUtils.toField(Observable.combineLatest(FieldUtils.toObservable(userName), FieldUtils.toObservable(errorDisplay),
             (field, errorDisplay) -> errorDisplay && (field == null || field.length() == 0) ? "User Name can not be null" : null));
     public final ObservableField<String> userPasswardError = FieldUtils.toField(Observable.combineLatest(FieldUtils.toObservable(userPassward), FieldUtils.toObservable(errorDisplay),
-            (field, errorDisplay) -> errorDisplay && (field == null || field.length() == 0) ? "User Name can not be null" : null));
+            (field, errorDisplay) -> errorDisplay && (field == null || field.length() == 0) ? "User Passward can not be null" : null));
     public final ObservableField<String> userPhoneError = FieldUtils.toField(Observable.combineLatest(FieldUtils.toObservable(userPhone), FieldUtils.toObservable(errorDisplay),
-            (field, errorDisplay) -> errorDisplay && (field == null || field.length() == 0) ? "User Name can not be null" : null));
+            (field, errorDisplay) -> errorDisplay && (field == null || field.length() == 0) ? "User Phone can not be null" : null));
     public SignUpViewModel(SignUpHelper signUpHelper,Context context) {
         this.context = context;
         this.signUpHelper=signUpHelper;

@@ -27,6 +27,15 @@ object  ActivityRouter{
         context.startActivity(intent)
     }
 
+    @JvmStatic
+    fun startProfileActivity(context: Context,phone:String) {
+        val extras = HashMap<String, Serializable?>()
+        extras.put(UserProfileActivity.USER_PHONE,phone)
+        val intent = BaseActivity.newIntent(context, extras, UserProfileActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        context.startActivity(intent)
+    }
+
 
 
 }
